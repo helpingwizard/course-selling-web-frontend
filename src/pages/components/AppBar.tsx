@@ -1,4 +1,4 @@
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { userState } from "../store/atom/user";
 import { userEmailState } from "../store/selector/userEmail";
 import { isUserLoading } from "../store/selector/isLoading";
@@ -16,7 +16,8 @@ export default function Appbar() {
   const router = useRouter();
   const userEmail = useRecoilValue(userEmailState);
   //const userLoading = useRecoilValue(isUserLoading);
-  const setuser = useRecoilState(userState);
+  //const setuser = useRecoilState(userState);
+  const setUser2 = useSetRecoilState(userState);
 
 
 
@@ -31,8 +32,8 @@ export default function Appbar() {
           </Typography>
           <Button color="inherit">Add Courses</Button>
           <Button color="inherit">Courses</Button>
-          <Button color="inherit">Logout</Button>
-        </Toolbar>
+          <Button color="inherit" onClick={() => {localStorage.setItem("token", " "); setUser2({isLoading: true, userEmail : ""}); router.push("/")}}>Logout</Button>
+        </Toolbar> 
       </AppBar>
     </Box>
   );
@@ -45,8 +46,8 @@ export default function Appbar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             COSMOS
           </Typography>
-          <Button color="inherit">Sign In</Button>
-          <Button color="inherit">Sign Up</Button>
+          <Button color="inherit" onClick={() => {router.push("/signup")}}>Sign Up</Button>
+          <Button color="inherit" onClick={() => {router.push("/signin")}}>Sign In</Button>
           
         </Toolbar>
       </AppBar>

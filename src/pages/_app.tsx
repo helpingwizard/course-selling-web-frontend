@@ -7,8 +7,9 @@ import Appbar from './components/AppBar';
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <RecoilRoot>
-      <InitComponent />
       <Appbar></Appbar>
+      <InitComponent></InitComponent>
+      
       <Component {...pageProps} />
     </RecoilRoot>
   );

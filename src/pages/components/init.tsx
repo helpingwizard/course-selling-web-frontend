@@ -9,7 +9,7 @@ export default function InitComponent()  {
 
   const init = async() => {
     try {
-      const response = await axios.get("http//localhost:3000/admin/me" , {
+      const response = await axios.get("http://localhost:3000/admin/me" , {
         headers: {
           "Authorization": "Bearer " + localStorage.getItem("token")
         }
@@ -23,13 +23,13 @@ export default function InitComponent()  {
       }else{
         setUser({
           isLoading: true,
-          userEmail : null
+          userEmail : " "
         })
       }
     }catch(e) {
       setUser({
         isLoading : false,
-        userEmail : null
+        userEmail : " "
       })
     }
   };
