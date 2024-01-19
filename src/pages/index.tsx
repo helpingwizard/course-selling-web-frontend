@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Signup from './signup'
-import { Typography } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 import XIcon from '@mui/icons-material/X';
 import { useRouter } from 'next/router'
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -14,6 +14,7 @@ export default function Home() {
   const router = useRouter();
   return (
     <div>
+      
       <div style={{ display: "flex" }}>
         <div>
           <div style={{ marginTop: 150, padding: 5, marginLeft: 30 }}>

@@ -14,14 +14,14 @@ import IconButton from '@mui/material/IconButton';
 
 export default function Appbar() {
   const router = useRouter();
-  const userEmail = useRecoilValue(userEmailState);
+  const userEmail1 = useRecoilValue(userEmailState);
   //const userLoading = useRecoilValue(isUserLoading);
   //const setuser = useRecoilState(userState);
   const setUser2 = useSetRecoilState(userState);
 
 
 
-  if (userEmail) {
+  if (userEmail1) {
     return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -30,8 +30,8 @@ export default function Appbar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             COSMOS
           </Typography>
-          <Button color="inherit">Add Courses</Button>
-          <Button color="inherit">Courses</Button>
+          <Button color="inherit" onClick={() => {router.push("/addcourse")}}>Add Courses</Button>
+          <Button color="inherit" onClick={() => router.push("/courses")}>Courses</Button>
           <Button color="inherit" onClick={() => {localStorage.setItem("token", " "); setUser2({isLoading: true, userEmail : ""}); router.push("/")}}>Logout</Button>
         </Toolbar> 
       </AppBar>
